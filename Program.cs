@@ -26,62 +26,35 @@ namespace Vacations
                 depVacation.Add(newOne);
             }
 
+            var result = depVacation
+                    .Select(vacation =>
+                    {
+                        if (FindIntersection(vacation, myVacation.First()))
+                            return StringWithIntersection(vacation, myVacation.First()) + "\n";
+                        else if (FindIntersection(vacation, myVacation.Last()))
+                            return StringWithIntersection(vacation, myVacation.Last()) + "\n";
+                        else return StringWithoutIntersection(vacation) + "\n";
+                    })
+                    .ToArray();
+
+            var stringResult = string.Join(string.Empty, result);
+
             using (StreamWriter sw = new StreamWriter(@"result.txt", false, System.Text.Encoding.Default))
             {
-                foreach (Vacation user in depVacation)
-                {
-                    if (FindIntersection(user, myVacation.First()))
-                    {
-                        sw.WriteLine(StringWithIntersection(user, myVacation.First()));
-                    }
-                    else if(FindIntersection(user, myVacation.Last()))
-                    {
-                        sw.WriteLine(StringWithIntersection(user, myVacation.Last()));
-                    }
-                    else
-                    {
-                        sw.WriteLine(StringWithoutIntersection(user));
-                    }
-                }
-
-            Console.ReadLine();
-
+                sw.Write(stringResult);
             }
+   
         }
 
-        static string StringWithIntersection(Vacation _user, Vacation _person)
-        {
-            string str = "ID " + _user.UserID.ToString()
-                         + ' ' + _user.StartDate.ToString("d")
-                         + '-' + _user.EndDate.ToString("d")
-                         + " пересекается с "
-                         + _person.StartDate.ToString("d")
-                         + '-' + _person.EndDate.ToString("d");
-            return str;
-        }
+        static string StringWithIntersection(Vacation _user, Vacation _person) =>
+            string.Format("ID {0} пересекается с {1}-{2}", _user.ToString(), _person.StartDate.ToString("d"),
+                _person.EndDate.ToString("d"));
+        
+        static string StringWithoutIntersection(Vacation _user) => 
+            string.Format("ID {0}", _user.ToString());
 
-        static string StringWithoutIntersection(Vacation _user)
-        {
-            string str = "ID " + _user.UserID.ToString()
-                         + ' ' + _user.StartDate.ToString("d")
-                         + '-' + _user.EndDate.ToString("d");
-            return str;
-        }
-
-        static bool FindIntersection(Vacation _user, Vacation _person)
-        {
-            bool detection;
-            if ((_person.StartDate <= _user.EndDate) & (_person.EndDate >= _user.EndDate))
-            {
-                detection = true;
-            }
-            else if ((_user.StartDate <= _person.EndDate) & (_user.EndDate >= _person.EndDate))
-            {
-                detection = true;
-            }
-            else
-                detection = false;
-            return detection;
-        }
+        static bool FindIntersection(Vacation _user, Vacation _person) => 
+            ((_person.StartDate <= _user.EndDate) & (_person.EndDate >= _user.EndDate)) ||
+            ((_user.StartDate <= _person.EndDate) & (_user.EndDate >= _person.EndDate));
     }
 }
