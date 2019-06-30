@@ -1,0 +1,11 @@
+C:\Users\sveta\source\repos\Vacations\Vacations\bin\Debug\netcoreapp2.1\Vacations.deps.json
+C:\Users\sveta\source\repos\Vacations\Vacations\bin\Debug\netcoreapp2.1\Vacations.runtimeconfig.json
+C:\Users\sveta\source\repos\Vacations\Vacations\bin\Debug\netcoreapp2.1\Vacations.runtimeconfig.dev.json
+C:\Users\sveta\source\repos\Vacations\Vacations\bin\Debug\netcoreapp2.1\Vacations.dll
+C:\Users\sveta\source\repos\Vacations\Vacations\bin\Debug\netcoreapp2.1\Vacations.pdb
+C:\Users\sveta\source\repos\Vacations\Vacations\obj\Debug\netcoreapp2.1\Vacations.csprojAssemblyReference.cache
+C:\Users\sveta\source\repos\Vacations\Vacations\obj\Debug\netcoreapp2.1\Vacations.csproj.CoreCompileInputs.cache
+C:\Users\sveta\source\repos\Vacations\Vacations\obj\Debug\netcoreapp2.1\Vacations.AssemblyInfoInputs.cache
+C:\Users\sveta\source\repos\Vacations\Vacations\obj\Debug\netcoreapp2.1\Vacations.AssemblyInfo.cs
+C:\Users\sveta\source\repos\Vacations\Vacations\obj\Debug\netcoreapp2.1\Vacations.dll
+C:\Users\sveta\source\repos\Vacations\Vacations\obj\Debug\netcoreapp2.1\Vacations.pdb
